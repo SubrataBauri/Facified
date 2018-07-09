@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
-		<title>Facified</title>
+		<title>Landed by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -30,10 +35,12 @@
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: #417af4;
   font-weight: bold;
+  border: 1px solid none;
   font-size: 18px;
   transition: 0.6s ease;
+  border:1px solid white;	
   border-radius: 0 3px 3px 0;
 }
 
@@ -44,9 +51,11 @@
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.prev:hover, .next:hover,.buttonss:hover {
   background-color: rgba(0,0,0,0.8);
 }
+
+
 
 /* Caption text */
 .text {
@@ -68,6 +77,11 @@
   top: 0;
 }
 
+.buttonss
+{
+	position: absolute;
+	color: #417af4 !important;
+}
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
@@ -106,6 +120,7 @@
 		<script>
 
 	var slideIndex = 1;
+	var slides, dots;
 	showSlides(slideIndex);
 
 	// Next/previous controls
@@ -118,10 +133,28 @@
 		showSlides(slideIndex = n);
 	}
 
+		function forward(msg) {
+			if(msg=='webcam')
+			{
+				if(slides[0].style.display=="block")
+				{
+					window.location.replace('./data/simple_video.html')
+				}
+				else if(slides[1].style.display == "block")
+				{
+					window.location.replace('./data/emo_detect.html')
+				}
+				else if(slides[2].style.display == "block")
+				{
+					alert('Bhakk bc')
+				}
+			}
+		}
+
 	function showSlides(n) {
 		var i;
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
+		slides = document.getElementsByClassName("mySlides");
+		dots = document.getElementsByClassName("dot");
 		if (n > slides.length) { slideIndex = 1 }
 		if (n < 1) { slideIndex = slides.length }
 		for (i = 0; i < slides.length; i++) {
@@ -164,7 +197,7 @@
 								</ul>
 							</li>
 							<li><a href="elements.html">Elements</a></li>
-							<li><a href="https://www.github.com/amanjaiswalofficial/Facified" class="button primary">Github Link</a></li>
+							<li><a href="#" class="button primary">Github Link</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -174,26 +207,27 @@
 				<section>
 					<!-- Slideshow container -->
 					<div class="slideshow-container" style="position: relative;margin-top:100px">
-					
 						<!-- Full-width images with number and caption text -->
-						<div class="mySlides fade">
+						<div class='images-display' style="width:1000px;height:90%">
+							<div class="mySlides fade">
 							<div class="numbertext">1 / 3</div>
 							<img src="img2.jpg" style="width:100%">
 							<div class="text">Caption Text</div>
-						</div>
-					
-						<div class="mySlides fade">
+							</div>
+						
+							<div class="mySlides fade">
 							<div class="numbertext">2 / 3</div>
 							<img src="img3.jpg" style="width:100%">
 							<div class="text">Caption Two</div>
-						</div>
+							</div>
 					
-						<div class="mySlides fade">
+							<div class="mySlides fade">
 							<div class="numbertext">3 / 3</div>
 							<img src="img1.jpg" style="width:100%">
 							<div class="text">Caption Three</div>
+							</div>
 						</div>
-					
+						<input id='webcam' type="button" class="buttonss" value="Try It Yourself" onclick="forward(this.id)" style="top:85%;left:40%;">
 						<!-- Next and previous buttons -->
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -238,7 +272,7 @@
 						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 
